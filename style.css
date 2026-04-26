@@ -1,0 +1,452 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', Arial, sans-serif;
+  background: #000;
+  color: #fff;
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+.hero-bg {
+  position: fixed;
+  inset: 0;
+  background:
+    url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1600&q=80")
+    center center / cover no-repeat;
+  z-index: -3;
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  background:
+    linear-gradient(to bottom, rgba(0,0,0,0.75), rgba(0,0,0,0.6), rgba(0,0,0,0.9)),
+    radial-gradient(circle at center, rgba(0,0,0,0.15), rgba(0,0,0,0.85));
+  z-index: -2;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 56px;
+}
+
+.logo {
+  width: 160px;
+  max-width: 42vw;
+}
+
+.sign-in-btn {
+  background: #e50914;
+  color: #fff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.sign-in-btn:hover {
+  background: #c40812;
+}
+
+.hero {
+  min-height: 82vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px 80px;
+}
+
+.hero-content {
+  max-width: 760px;
+}
+
+.hero h1 {
+  font-size: clamp(2.2rem, 5vw, 4rem);
+  line-height: 1.1;
+  font-weight: 800;
+  margin-bottom: 18px;
+}
+
+.subtext {
+  font-size: clamp(1.1rem, 2vw, 1.5rem);
+  margin-bottom: 16px;
+}
+
+.small-text {
+  font-size: 1rem;
+  color: #e5e5e5;
+  margin-bottom: 22px;
+}
+
+.cta-form {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.cta-form input {
+  width: 100%;
+  max-width: 380px;
+  padding: 16px 14px;
+  border: 1px solid rgba(255,255,255,0.35);
+  border-radius: 6px;
+  background: rgba(20, 20, 20, 0.78);
+  color: white;
+  font-size: 1rem;
+  outline: none;
+}
+
+.cta-form input:focus {
+  border-color: #ffffff;
+  box-shadow: 0 0 0 3px rgba(255,255,255,0.15);
+}
+
+.cta-form button {
+  background: #e50914;
+  color: white;
+  border: none;
+  padding: 16px 26px;
+  border-radius: 6px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.25s ease;
+}
+
+.cta-form button:hover {
+  background: #c40812;
+}
+
+.feature-section {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 30px;
+  align-items: center;
+  padding: 80px 56px;
+  border-top: 8px solid #1f1f1f;
+  background: #000;
+}
+
+.feature-section.reverse {
+  direction: rtl;
+}
+
+.feature-section.reverse > * {
+  direction: ltr;
+}
+
+.feature-text h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 14px;
+}
+
+.feature-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  color: #e5e5e5;
+}
+
+.feature-card {
+  background: linear-gradient(145deg, #111, #1c1c1c);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0,0,0,0.35);
+}
+
+.feature-card img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.faq-section {
+  padding: 80px 20px;
+  border-top: 8px solid #1f1f1f;
+  background: #000;
+  text-align: center;
+}
+
+.faq-section h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 30px;
+}
+
+.faq-item {
+  max-width: 900px;
+  margin: 0 auto 14px;
+  text-align: left;
+}
+
+.faq-question {
+  width: 100%;
+  background: #2d2d2d;
+  color: white;
+  border: none;
+  text-align: left;
+  padding: 22px 24px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.faq-question:hover {
+  background: #414141;
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  background: #2d2d2d;
+  transition: max-height 0.3s ease;
+  margin-top: 2px;
+}
+
+.faq-answer p {
+  padding: 20px 24px;
+  color: #e5e5e5;
+  line-height: 1.6;
+}
+
+.footer {
+  border-top: 8px solid #1f1f1f;
+  padding: 40px 56px 60px;
+  background: #000;
+  color: #b3b3b3;
+}
+
+.footer p {
+  margin-bottom: 20px;
+}
+
+.footer-links {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 14px;
+}
+
+.footer-links a {
+  color: #b3b3b3;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 900px) {
+  .feature-section {
+    grid-template-columns: 1fr;
+    padding: 60px 24px;
+  }
+
+  .navbar {
+    padding: 20px 20px;
+  }
+
+  .footer {
+    padding: 32px 24px 50px;
+  }
+
+  .footer-links {
+    grid-template-columns: repeat(2, minmax(120px, 1fr));
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    width: 120px;
+  }
+
+  .sign-in-btn {
+    padding: 8px 14px;
+    font-size: 13px;
+  }
+
+  .hero {
+    min-height: 78vh;
+    padding-top: 30px;
+  }
+
+  .cta-form button,
+  .cta-form input {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .faq-question {
+    font-size: 1rem;
+    padding: 18px;
+  }
+
+  .faq-answer p {
+    padding: 18px;
+  }
+}
+
+/* ── Trending Section ── */
+.trending-section {
+  background: #000;
+  border-top: 8px solid #1f1f1f;
+  padding: 50px 56px 40px;
+}
+.trending-title {
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  margin-bottom: 24px;
+  color: #fff;
+}
+.trending-row {
+  display: flex;
+  gap: 14px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: #e50914 #1f1f1f;
+}
+.trend-card {
+  position: relative;
+  flex: 0 0 200px;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.25s ease;
+}
+.trend-card:hover { transform: scale(1.06); }
+.trend-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+  display: block;
+}
+.trend-rank {
+  position: absolute;
+  top: 10px;
+  left: 12px;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: rgba(255,255,255,0.9);
+  text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+  line-height: 1;
+}
+.trend-info {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 36px 12px 14px;
+  background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);
+  color: #fff;
+}
+.trend-info span {
+  font-size: 11px;
+  color: #ccc;
+  display: block;
+  margin-bottom: 4px;
+}
+.trend-info p {
+  font-size: 15px;
+  font-weight: 700;
+}
+
+/* ── CTA Message ── */
+.cta-msg {
+  margin-top: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  min-height: 20px;
+}
+.cta-msg.success { color: #4ade80; }
+.cta-msg.error { color: #f87171; }
+
+/* ── Modal ── */
+.modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+.modal-overlay.active { display: flex; }
+.modal {
+  background: #141414;
+  border-radius: 8px;
+  padding: 48px 60px 60px;
+  max-width: 440px;
+  width: 100%;
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 22px;
+  cursor: pointer;
+  opacity: 0.7;
+}
+.modal-close:hover { opacity: 1; }
+.modal-logo {
+  width: 130px;
+  margin-bottom: 24px;
+  display: block;
+}
+.modal h2 {
+  font-size: 2rem;
+  margin-bottom: 28px;
+}
+.modal-form { display: flex; flex-direction: column; gap: 16px; }
+.modal-form input {
+  padding: 16px;
+  border-radius: 6px;
+  border: none;
+  background: #333;
+  color: #fff;
+  font-size: 1rem;
+  outline: none;
+}
+.modal-form input:focus { background: #454545; }
+.modal-submit-btn {
+  padding: 16px;
+  background: #e50914;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.modal-submit-btn:hover { background: #c40812; }
+.modal-hint { color: #e87c03; font-size: 13px; min-height: 18px; }
+.modal-footer-text { color: #737373; font-size: 15px; margin-top: 16px; }
+.modal-footer-text a { color: #fff; text-decoration: none; }
+
+/* ── Footer lang ── */
+.footer-lang { margin-top: 20px; font-size: 14px; }
+
+@media (max-width: 600px) {
+  .trending-section { padding: 40px 16px 30px; }
+  .trend-card { flex: 0 0 150px; }
+  .trend-card img { height: 210px; }
+  .modal { padding: 36px 24px 40px; }
+}

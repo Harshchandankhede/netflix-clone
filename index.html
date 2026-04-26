@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="StreamFlix — Unlimited movies, TV shows and more. Watch anywhere. Cancel anytime." />
+  <title>StreamFlix — Unlimited Streaming</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="hero-bg"></div>
+  <div class="overlay"></div>
+
+  <!-- Sign-In Modal -->
+  <div class="modal-overlay" id="modalOverlay">
+    <div class="modal" id="signInModal">
+      <button class="modal-close" id="modalClose">✕</button>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Logo" class="modal-logo" />
+      <h2>Sign In</h2>
+      <form id="signInForm" class="modal-form">
+        <input type="email" id="modalEmail" placeholder="Email or phone number" required />
+        <input type="password" id="modalPassword" placeholder="Password" required />
+        <button type="submit" class="modal-submit-btn">Sign In</button>
+        <p class="modal-hint" id="signInMsg"></p>
+      </form>
+      <p class="modal-footer-text">New to StreamFlix? <a href="#" id="joinNowLink">Join now.</a></p>
+    </div>
+  </div>
+
+  <header class="navbar">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="StreamFlix Logo" class="logo" />
+    <button class="sign-in-btn" id="openSignIn">Sign In</button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Unlimited movies, TV shows and more</h1>
+        <p class="subtext">Watch anywhere. Cancel anytime.</p>
+        <p class="small-text">Ready to watch? Enter your email to create or restart your membership.</p>
+        <form class="cta-form" id="ctaForm">
+          <input type="email" id="ctaEmail" placeholder="Email address" />
+          <button type="submit">Get Started &rsaquo;</button>
+        </form>
+        <p id="ctaMsg" class="cta-msg"></p>
+      </div>
+    </section>
+
+    <!-- Trending Now -->
+    <section class="trending-section">
+      <h2 class="trending-title">🔥 Trending Now</h2>
+      <div class="trending-row" id="trendingRow">
+        <div class="trend-card">
+          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=400&q=80" alt="Movie 1" />
+          <div class="trend-rank">1</div>
+          <div class="trend-info"><span>Action · 2h 14m</span><p>Dark Horizon</p></div>
+        </div>
+        <div class="trend-card">
+          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=400&q=80" alt="Movie 2" />
+          <div class="trend-rank">2</div>
+          <div class="trend-info"><span>Drama · 1h 58m</span><p>Echoes</p></div>
+        </div>
+        <div class="trend-card">
+          <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=400&q=80" alt="Movie 3" />
+          <div class="trend-rank">3</div>
+          <div class="trend-info"><span>Thriller · 2h 02m</span><p>The Last Signal</p></div>
+        </div>
+        <div class="trend-card">
+          <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=400&q=80" alt="Movie 4" />
+          <div class="trend-rank">4</div>
+          <div class="trend-info"><span>Sci-Fi · 2h 30m</span><p>Stellar</p></div>
+        </div>
+        <div class="trend-card">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=400&q=80" alt="Movie 5" />
+          <div class="trend-rank">5</div>
+          <div class="trend-info"><span>Adventure · 1h 45m</span><p>Summit</p></div>
+        </div>
+        <div class="trend-card">
+          <img src="https://images.unsplash.com/photo-1511300636408-a63a89df3482?auto=format&fit=crop&w=400&q=80" alt="Movie 6" />
+          <div class="trend-rank">6</div>
+          <div class="trend-info"><span>Romance · 1h 50m</span><p>Midnight Blue</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="feature-section">
+      <div class="feature-text">
+        <h2>Enjoy on your TV</h2>
+        <p>Watch on Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=900&q=80" alt="TV streaming" />
+      </div>
+    </section>
+
+    <section class="feature-section reverse">
+      <div class="feature-text">
+        <h2>Download your shows to watch offline</h2>
+        <p>Save your favourites easily and always have something to watch.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://images.unsplash.com/photo-1518932945647-7a1c969f8be2?auto=format&fit=crop&w=900&q=80" alt="Mobile streaming" />
+      </div>
+    </section>
+
+    <section class="feature-section">
+      <div class="feature-text">
+        <h2>Create profiles for kids</h2>
+        <p>Send children on adventures with their favourite characters in a space made just for them — free with your membership.</p>
+      </div>
+      <div class="feature-card">
+        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80" alt="Kids profiles" />
+      </div>
+    </section>
+
+    <section class="faq-section">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-item">
+        <button class="faq-question">What is StreamFlix?</button>
+        <div class="faq-answer"><p>StreamFlix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How much does StreamFlix cost?</button>
+        <div class="faq-answer"><p>Watch StreamFlix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from ₹149 to ₹649 a month.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Where can I watch?</button>
+        <div class="faq-answer"><p>Watch anywhere, anytime. Sign in with your StreamFlix account to watch instantly on the web at streamflix.com from your personal computer or on any internet-connected device.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">How do I cancel?</button>
+        <div class="faq-answer"><p>StreamFlix is flexible. There are no pesky contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees — start or stop your account anytime.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question">Is this responsive?</button>
+        <div class="faq-answer"><p>Yes! The layout stacks sections cleanly and keeps the signup area readable on all device sizes — mobile, tablet, and desktop.</p></div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>Questions? Call 1800-419-3789</p>
+    <div class="footer-links">
+      <a href="#">FAQ</a>
+      <a href="#">Help Centre</a>
+      <a href="#">Account</a>
+      <a href="#">Media Centre</a>
+      <a href="#">Investor Relations</a>
+      <a href="#">Jobs</a>
+      <a href="#">Ways to Watch</a>
+      <a href="#">Terms of Use</a>
+      <a href="#">Privacy</a>
+      <a href="#">Cookie Preferences</a>
+      <a href="#">Corporate Information</a>
+      <a href="#">Contact Us</a>
+    </div>
+    <p class="footer-lang">StreamFlix India</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
