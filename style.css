@@ -45,7 +45,7 @@ body {
 }
 
 .sign-in-btn {
-  background: #e50914;
+  background: #3b82f6;
   color: #fff;
   border: none;
   padding: 10px 18px;
@@ -57,7 +57,7 @@ body {
 }
 
 .sign-in-btn:hover {
-  background: #c40812;
+  background: #2563eb;
 }
 
 .hero {
@@ -116,7 +116,7 @@ body {
 }
 
 .cta-form button {
-  background: #e50914;
+  background: #3b82f6;
   color: white;
   border: none;
   padding: 16px 26px;
@@ -128,7 +128,7 @@ body {
 }
 
 .cta-form button:hover {
-  background: #c40812;
+  background: #2563eb;
 }
 
 .feature-section {
@@ -316,7 +316,7 @@ body {
   overflow-x: auto;
   padding-bottom: 12px;
   scrollbar-width: thin;
-  scrollbar-color: #e50914 #1f1f1f;
+  scrollbar-color: #3b82f6 #1f1f1f;
 }
 .trend-card {
   position: relative;
@@ -427,7 +427,7 @@ body {
 .modal-form input:focus { background: #454545; }
 .modal-submit-btn {
   padding: 16px;
-  background: #e50914;
+  background: #3b82f6;
   color: #fff;
   border: none;
   border-radius: 6px;
@@ -436,7 +436,7 @@ body {
   cursor: pointer;
   transition: background 0.2s;
 }
-.modal-submit-btn:hover { background: #c40812; }
+.modal-submit-btn:hover { background: #2563eb; }
 .modal-hint { color: #e87c03; font-size: 13px; min-height: 18px; }
 .modal-footer-text { color: #737373; font-size: 15px; margin-top: 16px; }
 .modal-footer-text a { color: #fff; text-decoration: none; }

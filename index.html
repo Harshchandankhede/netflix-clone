@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="StreamFlix — Unlimited movies, TV shows and more. Watch anywhere. Cancel anytime." />
-  <title>StreamFlix — Unlimited Streaming</title>
+  <meta name="description" content="CineStream — Discover the best movies and TV shows. Watch anywhere." />
+  <title>CineStream — Unlimited Streaming</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
@@ -17,32 +17,31 @@
   <div class="modal-overlay" id="modalOverlay">
     <div class="modal" id="signInModal">
       <button class="modal-close" id="modalClose">✕</button>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="Logo" class="modal-logo" />
-      <h2>Sign In</h2>
+      <h1 class="modal-logo" style="color: #3b82f6; font-size: 2rem; margin-bottom: 1rem;">CineStream</h1>
+      <h2>Subscribe to Newsletter</h2>
       <form id="signInForm" class="modal-form">
-        <input type="email" id="modalEmail" placeholder="Email or phone number" required />
-        <input type="password" id="modalPassword" placeholder="Password" required />
-        <button type="submit" class="modal-submit-btn">Sign In</button>
+        <input type="email" id="modalEmail" placeholder="Email address" required />
+        <button type="submit" class="modal-submit-btn">Subscribe</button>
         <p class="modal-hint" id="signInMsg"></p>
       </form>
-      <p class="modal-footer-text">New to StreamFlix? <a href="#" id="joinNowLink">Join now.</a></p>
+      <p class="modal-footer-text">Want to learn more? <a href="#" id="joinNowLink">Explore now.</a></p>
     </div>
   </div>
 
   <header class="navbar">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/0/08/Netflix_2015_logo.svg" alt="StreamFlix Logo" class="logo" />
-    <button class="sign-in-btn" id="openSignIn">Sign In</button>
+    <h1 class="logo" style="color: #3b82f6; font-size: 2.5rem; margin: 0;">CineStream</h1>
+    <button class="sign-in-btn" id="openSignIn">Subscribe</button>
   </header>
 
   <main>
     <section class="hero">
       <div class="hero-content">
         <h1>Unlimited movies, TV shows and more</h1>
-        <p class="subtext">Watch anywhere. Cancel anytime.</p>
-        <p class="small-text">Ready to watch? Enter your email to create or restart your membership.</p>
+        <p class="subtext">Discover the best movies and TV shows.</p>
+        <p class="small-text">Stay updated! Enter your email to subscribe to our newsletter.</p>
         <form class="cta-form" id="ctaForm">
           <input type="email" id="ctaEmail" placeholder="Email address" />
-          <button type="submit">Get Started &rsaquo;</button>
+          <button type="submit">Subscribe &rsaquo;</button>
         </form>
         <p id="ctaMsg" class="cta-msg"></p>
       </div>
@@ -118,20 +117,21 @@
     <section class="faq-section">
       <h2>Frequently Asked Questions</h2>
       <div class="faq-item">
-        <button class="faq-question">What is StreamFlix?</button>
-        <div class="faq-answer"><p>StreamFlix is a streaming service that offers a wide variety of award-winning TV shows, movies, anime, documentaries, and more on thousands of internet-connected devices.</p></div>
+      <div class="faq-item">
+        <button class="faq-question">What is CineStream?</button>
+        <div class="faq-answer"><p>CineStream is a streaming platform directory that showcases a wide variety of award-winning TV shows, movies, anime, documentaries, and more.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">How much does StreamFlix cost?</button>
-        <div class="faq-answer"><p>Watch StreamFlix on your smartphone, tablet, Smart TV, laptop, or streaming device, all for one fixed monthly fee. Plans range from ₹149 to ₹649 a month.</p></div>
+        <button class="faq-question">How much does CineStream cost?</button>
+        <div class="faq-answer"><p>It is completely free to browse our catalogs and subscribe to our newsletter for the latest movie recommendations.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">Where can I watch?</button>
-        <div class="faq-answer"><p>Watch anywhere, anytime. Sign in with your StreamFlix account to watch instantly on the web at streamflix.com from your personal computer or on any internet-connected device.</p></div>
+        <button class="faq-question">Where can I browse?</button>
+        <div class="faq-answer"><p>Browse anywhere, anytime. Access CineStream.com from your personal computer or on any internet-connected device.</p></div>
       </div>
       <div class="faq-item">
-        <button class="faq-question">How do I cancel?</button>
-        <div class="faq-answer"><p>StreamFlix is flexible. There are no pesky contracts and no commitments. You can easily cancel your account online in two clicks. There are no cancellation fees — start or stop your account anytime.</p></div>
+        <button class="faq-question">How do I unsubscribe?</button>
+        <div class="faq-answer"><p>You can easily unsubscribe from our newsletter online in two clicks. There are no commitments.</p></div>
       </div>
       <div class="faq-item">
         <button class="faq-question">Is this responsive?</button>
@@ -156,7 +156,7 @@
       <a href="#">Corporate Information</a>
       <a href="#">Contact Us</a>
     </div>
-    <p class="footer-lang">StreamFlix India</p>
+    <p class="footer-lang">CineStream Global</p>
   </footer>
 
   <script src="script.js"></script>

@@ -80,16 +80,12 @@ document.addEventListener("keydown", (e) => {
 signInForm.addEventListener("submit", (e) => {
   e.preventDefault();
   const email = document.getElementById("modalEmail").value.trim();
-  const pass = document.getElementById("modalPassword").value.trim();
 
-  if (!email || !pass) {
+  if (!email) {
     signInMsg.textContent = "Please fill in all fields.";
     signInMsg.style.color = "#e87c03";
-  } else if (pass.length < 4) {
-    signInMsg.textContent = "Password should be between 4 and 60 characters.";
-    signInMsg.style.color = "#e87c03";
   } else {
-    signInMsg.textContent = "✓ Sign-in successful! Redirecting...";
+    signInMsg.textContent = "✓ Subscribed successfully! Redirecting...";
     signInMsg.style.color = "#4ade80";
     setTimeout(() => {
       modalOverlay.classList.remove("active");
@@ -118,4 +114,4 @@ window.addEventListener("scroll", () => {
   }
 });
 
-console.log("StreamFlix landing page loaded");
+console.log("CineStream landing page loaded");
