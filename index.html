@@ -3,139 +3,158 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="CineStream — Discover the best movies and TV shows. Watch anywhere." />
+  <meta name="description" content="CineStream — Discover trending movies and TV shows, explore featured categories, and subscribe for weekly recommendations." />
   <title>CineStream — Unlimited Streaming</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="hero-bg"></div>
-  <div class="overlay"></div>
+  <a class="skip-link" href="#mainContent">Skip to content</a>
 
-  <!-- Sign-In Modal -->
-  <div class="modal-overlay" id="modalOverlay">
-    <div class="modal" id="signInModal">
-      <button class="modal-close" id="modalClose">✕</button>
-      <h1 class="modal-logo" style="color: #3b82f6; font-size: 2rem; margin-bottom: 1rem;">CineStream</h1>
-      <h2>Subscribe to Newsletter</h2>
-      <form id="signInForm" class="modal-form">
-        <input type="email" id="modalEmail" placeholder="Email address" required />
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="overlay" aria-hidden="true"></div>
+
+  <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
+    <div class="modal" id="signInModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" tabindex="-1">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close subscribe dialog">✕</button>
+      <p class="modal-logo">CineStream</p>
+      <h2 id="modalTitle">Subscribe to newsletter</h2>
+      <p id="modalDesc" class="modal-description">Get fresh movie picks, trending shows, and handpicked recommendations every week.</p>
+      <form id="signInForm" class="modal-form" novalidate>
+        <label class="sr-only" for="modalEmail">Email address</label>
+        <input type="email" id="modalEmail" placeholder="Email address" required autocomplete="email" />
         <button type="submit" class="modal-submit-btn">Subscribe</button>
-        <p class="modal-hint" id="signInMsg"></p>
+        <p class="modal-hint" id="signInMsg" aria-live="polite"></p>
       </form>
-      <p class="modal-footer-text">Want to learn more? <a href="#" id="joinNowLink">Explore now.</a></p>
+      <p class="modal-footer-text">Want to explore first? <a href="#hero" id="joinNowLink">Browse the homepage.</a></p>
     </div>
   </div>
 
-  <header class="navbar">
-    <h1 class="logo" style="color: #3b82f6; font-size: 2.5rem; margin: 0;">CineStream</h1>
-    <button class="sign-in-btn" id="openSignIn">Subscribe</button>
+  <header class="navbar" id="top">
+    <h1 class="logo">CineStream</h1>
+    <button class="sign-in-btn" id="openSignIn" type="button">Subscribe</button>
   </header>
 
-  <main>
-    <section class="hero">
+  <main id="mainContent">
+    <section class="hero" id="hero">
       <div class="hero-content">
-        <h1>Unlimited movies, TV shows and more</h1>
-        <p class="subtext">Discover the best movies and TV shows.</p>
-        <p class="small-text">Stay updated! Enter your email to subscribe to our newsletter.</p>
-        <form class="cta-form" id="ctaForm">
-          <input type="email" id="ctaEmail" placeholder="Email address" />
-          <button type="submit">Subscribe &rsaquo;</button>
+        <span class="eyebrow">Movie discovery, simplified</span>
+        <h2>Unlimited movie inspiration, TV picks, and weekly updates</h2>
+        <p class="subtext">Discover trending titles, explore featured categories, and never run out of something great to watch.</p>
+        <p class="small-text">Stay updated with our newsletter for curated recommendations and platform highlights.</p>
+        <form class="cta-form" id="ctaForm" novalidate>
+          <label class="sr-only" for="ctaEmail">Email address</label>
+          <input type="email" id="ctaEmail" placeholder="Email address" autocomplete="email" />
+          <button type="submit">Subscribe now</button>
         </form>
-        <p id="ctaMsg" class="cta-msg"></p>
+        <p id="ctaMsg" class="cta-msg" aria-live="polite"></p>
       </div>
     </section>
 
-    <!-- Trending Now -->
-    <section class="trending-section">
-      <h2 class="trending-title">🔥 Trending Now</h2>
+    <section class="trending-section" aria-labelledby="trendingTitle">
+      <h2 class="trending-title" id="trendingTitle">Trending now</h2>
       <div class="trending-row" id="trendingRow">
-        <div class="trend-card">
-          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=400&q=80" alt="Movie 1" />
+        <article class="trend-card">
+          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=400&q=80" alt="Poster art for Dark Horizon" loading="lazy" />
           <div class="trend-rank">1</div>
           <div class="trend-info"><span>Action · 2h 14m</span><p>Dark Horizon</p></div>
-        </div>
-        <div class="trend-card">
-          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=400&q=80" alt="Movie 2" />
+        </article>
+        <article class="trend-card">
+          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=400&q=80" alt="Poster art for Echoes" loading="lazy" />
           <div class="trend-rank">2</div>
           <div class="trend-info"><span>Drama · 1h 58m</span><p>Echoes</p></div>
-        </div>
-        <div class="trend-card">
-          <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=400&q=80" alt="Movie 3" />
+        </article>
+        <article class="trend-card">
+          <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=400&q=80" alt="Poster art for The Last Signal" loading="lazy" />
           <div class="trend-rank">3</div>
           <div class="trend-info"><span>Thriller · 2h 02m</span><p>The Last Signal</p></div>
-        </div>
-        <div class="trend-card">
-          <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=400&q=80" alt="Movie 4" />
+        </article>
+        <article class="trend-card">
+          <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=400&q=80" alt="Poster art for Stellar" loading="lazy" />
           <div class="trend-rank">4</div>
           <div class="trend-info"><span>Sci-Fi · 2h 30m</span><p>Stellar</p></div>
-        </div>
-        <div class="trend-card">
-          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=400&q=80" alt="Movie 5" />
+        </article>
+        <article class="trend-card">
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=400&q=80" alt="Poster art for Summit" loading="lazy" />
           <div class="trend-rank">5</div>
           <div class="trend-info"><span>Adventure · 1h 45m</span><p>Summit</p></div>
-        </div>
-        <div class="trend-card">
-          <img src="https://images.unsplash.com/photo-1511300636408-a63a89df3482?auto=format&fit=crop&w=400&q=80" alt="Movie 6" />
+        </article>
+        <article class="trend-card">
+          <img src="https://images.unsplash.com/photo-1511300636408-a63a89df3482?auto=format&fit=crop&w=400&q=80" alt="Poster art for Midnight Blue" loading="lazy" />
           <div class="trend-rank">6</div>
           <div class="trend-info"><span>Romance · 1h 50m</span><p>Midnight Blue</p></div>
-        </div>
+        </article>
       </div>
     </section>
 
     <section class="feature-section">
       <div class="feature-text">
         <h2>Enjoy on your TV</h2>
-        <p>Watch on Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players and more.</p>
+        <p>Watch on Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players, and more from a clean multi-device experience.</p>
       </div>
       <div class="feature-card">
-        <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=900&q=80" alt="TV streaming" />
+        <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=900&q=80" alt="Streaming content on a large television screen" loading="lazy" />
       </div>
     </section>
 
     <section class="feature-section reverse">
       <div class="feature-text">
         <h2>Download your shows to watch offline</h2>
-        <p>Save your favourites easily and always have something to watch.</p>
+        <p>Save your favorites easily, build your personal watchlist, and keep great entertainment ready for travel or low-connectivity moments.</p>
       </div>
       <div class="feature-card">
-        <img src="https://images.unsplash.com/photo-1518932945647-7a1c969f8be2?auto=format&fit=crop&w=900&q=80" alt="Mobile streaming" />
+        <img src="https://images.unsplash.com/photo-1518932945647-7a1c969f8be2?auto=format&fit=crop&w=900&q=80" alt="Watching shows on a mobile device" loading="lazy" />
       </div>
     </section>
 
     <section class="feature-section">
       <div class="feature-text">
         <h2>Create profiles for kids</h2>
-        <p>Send children on adventures with their favourite characters in a space made just for them — free with your membership.</p>
+        <p>Give children a friendly space tailored to family viewing, with content highlights designed to feel simple, safe, and fun.</p>
       </div>
       <div class="feature-card">
-        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80" alt="Kids profiles" />
+        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80" alt="Kid-friendly entertainment experience" loading="lazy" />
       </div>
     </section>
 
-    <section class="faq-section">
-      <h2>Frequently Asked Questions</h2>
+    <section class="faq-section" aria-labelledby="faqTitle">
+      <h2 id="faqTitle">Frequently asked questions</h2>
+
       <div class="faq-item">
-      <div class="faq-item">
-        <button class="faq-question">What is CineStream?</button>
-        <div class="faq-answer"><p>CineStream is a streaming platform directory that showcases a wide variety of award-winning TV shows, movies, anime, documentaries, and more.</p></div>
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq1" id="faqBtn1">What is CineStream?</button>
+        <div class="faq-answer" id="faq1" role="region" aria-labelledby="faqBtn1" hidden>
+          <p>CineStream is a streaming discovery platform concept that highlights trending movies, TV shows, and curated recommendations in one place.</p>
+        </div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-question">How much does CineStream cost?</button>
-        <div class="faq-answer"><p>It is completely free to browse our catalogs and subscribe to our newsletter for the latest movie recommendations.</p></div>
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq2" id="faqBtn2">How much does CineStream cost?</button>
+        <div class="faq-answer" id="faq2" role="region" aria-labelledby="faqBtn2" hidden>
+          <p>Browsing this landing page is free, and newsletter subscriptions are free for users who want weekly recommendations and updates.</p>
+        </div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-question">Where can I browse?</button>
-        <div class="faq-answer"><p>Browse anywhere, anytime. Access CineStream.com from your personal computer or on any internet-connected device.</p></div>
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq3" id="faqBtn3">Where can I browse?</button>
+        <div class="faq-answer" id="faq3" role="region" aria-labelledby="faqBtn3" hidden>
+          <p>You can browse from desktop, tablet, or mobile on any modern internet-connected device with a responsive viewing experience.</p>
+        </div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-question">How do I unsubscribe?</button>
-        <div class="faq-answer"><p>You can easily unsubscribe from our newsletter online in two clicks. There are no commitments.</p></div>
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq4" id="faqBtn4">How do I unsubscribe?</button>
+        <div class="faq-answer" id="faq4" role="region" aria-labelledby="faqBtn4" hidden>
+          <p>You can unsubscribe from newsletter updates using the link included in future emails, with no long-term commitment required.</p>
+        </div>
       </div>
+
       <div class="faq-item">
-        <button class="faq-question">Is this responsive?</button>
-        <div class="faq-answer"><p>Yes! The layout stacks sections cleanly and keeps the signup area readable on all device sizes — mobile, tablet, and desktop.</p></div>
+        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq5" id="faqBtn5">Is this responsive?</button>
+        <div class="faq-answer" id="faq5" role="region" aria-labelledby="faqBtn5" hidden>
+          <p>Yes. The page uses mobile-friendly layouts, stacked sections, flexible forms, and horizontally scrollable trending cards for smaller screens.</p>
+        </div>
       </div>
     </section>
   </main>
