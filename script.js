@@ -1,44 +1,18 @@
+// FAQ accordion
 const faqButtons = document.querySelectorAll('.faq-question');
-const faqAnswers = document.querySelectorAll('.faq-answer');
-const ctaForm = document.getElementById('ctaForm');
-const ctaEmail = document.getElementById('ctaEmail');
-const ctaMsg = document.getElementById('ctaMsg');
-const modalOverlay = document.getElementById('modalOverlay');
-const modal = document.getElementById('signInModal');
-const openBtn = document.getElementById('openSignIn');
-const closeBtn = document.getElementById('modalClose');
-const signInForm = document.getElementById('signInForm');
-const signInMsg = document.getElementById('signInMsg');
-const joinNowLink = document.getElementById('joinNowLink');
-const modalEmail = document.getElementById('modalEmail');
-const navbar = document.querySelector('.navbar');
-
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-let lastFocusedElement = null;
-
-function validateEmail(email) {
-  return emailPattern.test(email.trim());
-}
-
-function setMessage(element, message, type) {
-  element.textContent = message;
-  element.className = element.id === 'ctaMsg' ? `cta-msg ${type}` : `modal-hint ${type}`;
-}
-
-function closeAllFaq() {
-  faqButtons.forEach((button) => button.setAttribute('aria-expanded', 'false'));
-  faqAnswers.forEach((answer) => {
-    answer.hidden = true;
-  });
-}
 
 faqButtons.forEach((button) => {
   button.addEventListener('click', () => {
     const answer = document.getElementById(button.getAttribute('aria-controls'));
     const isExpanded = button.getAttribute('aria-expanded') === 'true';
 
-    closeAllFaq();
+    // Close all
+    faqButtons.forEach((btn) => {
+      btn.setAttribute('aria-expanded', 'false');
+      document.getElementById(btn.getAttribute('aria-controls')).hidden = true;
+    });
 
+    // Open clicked if it was closed
     if (!isExpanded) {
       button.setAttribute('aria-expanded', 'true');
       answer.hidden = false;
@@ -46,89 +20,84 @@ faqButtons.forEach((button) => {
   });
 });
 
+// CTA form
+const ctaForm = document.getElementById('ctaForm');
+const ctaEmail = document.getElementById('ctaEmail');
+const ctaMsg = document.getElementById('ctaMsg');
+const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+
+function validateEmail(email) {
+  return emailPattern.test(email.trim());
+}
+
+function setMsg(el, msg, type) {
+  el.textContent = msg;
+  el.className = el.id === 'ctaMsg' ? `cta-msg ${type}` : `modal-hint ${type}`;
+}
+
 ctaForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const email = ctaEmail.value.trim();
-
-  if (!email) {
-    setMessage(ctaMsg, 'Email is required.', 'error');
-    ctaEmail.focus();
-    return;
-  }
-
-  if (!validateEmail(email)) {
-    setMessage(ctaMsg, 'Please enter a valid email address.', 'error');
-    ctaEmail.focus();
-    return;
-  }
-
-  setMessage(ctaMsg, '✓ You are subscribed. Watchlist updates will land in your inbox.', 'success');
+  if (!email) { setMsg(ctaMsg, 'Please enter your email.', 'error'); return; }
+  if (!validateEmail(email)) { setMsg(ctaMsg, 'Please enter a valid email address.', 'error'); return; }
+  setMsg(ctaMsg, '✓ You\'re subscribed! Expect your first picks this Friday.', 'success');
   ctaForm.reset();
 });
 
+// Modal
+const modalOverlay = document.getElementById('modalOverlay');
+const modal = document.getElementById('subscribeModal');
+const openBtns = [
+  document.getElementById('openSubscribe'),
+  document.getElementById('openSubscribeBanner')
+].filter(Boolean);
+const closeBtn = document.getElementById('modalClose');
+const subscribeForm = document.getElementById('subscribeForm');
+const subscribeMsg = document.getElementById('subscribeMsg');
+const joinNowLink = document.getElementById('joinNowLink');
+const modalEmail = document.getElementById('modalEmail');
+let lastFocused = null;
+
 function openModal() {
-  lastFocusedElement = document.activeElement;
+  lastFocused = document.activeElement;
   modalOverlay.classList.add('active');
   modalOverlay.setAttribute('aria-hidden', 'false');
   document.body.style.overflow = 'hidden';
-  setTimeout(() => modalEmail.focus(), 50);
+  setTimeout(() => modalEmail.focus(), 60);
 }
 
 function closeModal() {
   modalOverlay.classList.remove('active');
   modalOverlay.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
-  signInForm.reset();
-  signInMsg.textContent = '';
-  signInMsg.className = 'modal-hint';
-  if (lastFocusedElement) lastFocusedElement.focus();
+  subscribeForm.reset();
+  subscribeMsg.textContent = '';
+  subscribeMsg.className = 'modal-hint';
+  if (lastFocused) lastFocused.focus();
 }
 
-openBtn.addEventListener('click', openModal);
+openBtns.forEach(btn => btn.addEventListener('click', openModal));
 closeBtn.addEventListener('click', closeModal);
-
-modalOverlay.addEventListener('click', (e) => {
-  if (e.target === modalOverlay) closeModal();
-});
+modalOverlay.addEventListener('click', (e) => { if (e.target === modalOverlay) closeModal(); });
 
 document.addEventListener('keydown', (e) => {
-  if (e.key === 'Escape' && modalOverlay.classList.contains('active')) {
-    closeModal();
-  }
+  if (e.key === 'Escape' && modalOverlay.classList.contains('active')) closeModal();
 
   if (e.key === 'Tab' && modalOverlay.classList.contains('active')) {
-    const focusable = modal.querySelectorAll('button, a[href], input, textarea, select');
-    const first = focusable[0];
-    const last = focusable[focusable.length - 1];
-
-    if (e.shiftKey && document.activeElement === first) {
-      e.preventDefault();
-      last.focus();
-    } else if (!e.shiftKey && document.activeElement === last) {
-      e.preventDefault();
-      first.focus();
-    }
+    const focusable = modal.querySelectorAll('button, a[href], input');
+    const first = focusable[0], last = focusable[focusable.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
   }
 });
 
-signInForm.addEventListener('submit', (e) => {
+subscribeForm.addEventListener('submit', (e) => {
   e.preventDefault();
   const email = modalEmail.value.trim();
-
-  if (!email) {
-    setMessage(signInMsg, 'Email is required.', 'error');
-    modalEmail.focus();
-    return;
-  }
-
-  if (!validateEmail(email)) {
-    setMessage(signInMsg, 'Please enter a valid email address.', 'error');
-    modalEmail.focus();
-    return;
-  }
-
-  setMessage(signInMsg, '✓ Subscription successful. Welcome to CineStream updates.', 'success');
-  setTimeout(closeModal, 1400);
+  if (!email) { setMsg(subscribeMsg, 'Please enter your email.', 'error'); return; }
+  if (!validateEmail(email)) { setMsg(subscribeMsg, 'Please enter a valid email address.', 'error'); return; }
+  setMsg(subscribeMsg, '✓ Subscribed! Welcome to StreamFlix picks.', 'success');
+  setTimeout(closeModal, 1500);
 });
 
 joinNowLink.addEventListener('click', (e) => {
@@ -138,12 +107,10 @@ joinNowLink.addEventListener('click', (e) => {
   setTimeout(() => ctaEmail.focus(), 500);
 });
 
+// Navbar scroll effect
+const navbar = document.querySelector('.navbar');
 window.addEventListener('scroll', () => {
-  if (window.scrollY > 50) {
-    navbar.style.background = 'rgba(0, 0, 0, 0.82)';
-    navbar.style.backdropFilter = 'blur(10px)';
-  } else {
-    navbar.style.background = 'transparent';
-    navbar.style.backdropFilter = 'none';
-  }
+  navbar.style.background = window.scrollY > 60
+    ? 'rgba(10, 10, 15, 0.97)'
+    : 'rgba(10, 10, 15, 0.85)';
 });

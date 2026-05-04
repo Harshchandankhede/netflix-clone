@@ -3,179 +3,253 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="CineStream — Discover trending movies and TV shows, explore featured categories, and subscribe for weekly recommendations." />
-  <title>CineStream — Unlimited Streaming</title>
+  <meta name="description" content="StreamFlix — A movie discovery platform to explore trending films, curated picks, and weekly watch recommendations." />
+  <title>StreamFlix — Movie Discovery Hub</title>
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800;900&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+
   <a class="skip-link" href="#mainContent">Skip to content</a>
 
-  <div class="hero-bg" aria-hidden="true"></div>
-  <div class="overlay" aria-hidden="true"></div>
-
+  <!-- Subscribe Modal -->
   <div class="modal-overlay" id="modalOverlay" aria-hidden="true">
-    <div class="modal" id="signInModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" aria-describedby="modalDesc" tabindex="-1">
-      <button class="modal-close" id="modalClose" type="button" aria-label="Close subscribe dialog">✕</button>
-      <p class="modal-logo">CineStream</p>
-      <h2 id="modalTitle">Subscribe to newsletter</h2>
-      <p id="modalDesc" class="modal-description">Get fresh movie picks, trending shows, and handpicked recommendations every week.</p>
-      <form id="signInForm" class="modal-form" novalidate>
+    <div class="modal" id="subscribeModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+      <button class="modal-close" id="modalClose" type="button" aria-label="Close dialog">✕</button>
+      <div class="modal-icon">🎬</div>
+      <p class="modal-logo">StreamFlix</p>
+      <h2 id="modalTitle">Get weekly picks</h2>
+      <p class="modal-description">Curated movie and show recommendations delivered to your inbox every Friday.</p>
+      <form id="subscribeForm" class="modal-form" novalidate>
         <label class="sr-only" for="modalEmail">Email address</label>
-        <input type="email" id="modalEmail" placeholder="Email address" required autocomplete="email" />
-        <button type="submit" class="modal-submit-btn">Subscribe</button>
-        <p class="modal-hint" id="signInMsg" aria-live="polite"></p>
+        <input type="email" id="modalEmail" placeholder="your@email.com" required autocomplete="email" />
+        <button type="submit" class="modal-submit-btn">Subscribe Free</button>
+        <p class="modal-hint" id="subscribeMsg" aria-live="polite"></p>
       </form>
-      <p class="modal-footer-text">Want to explore first? <a href="#hero" id="joinNowLink">Browse the homepage.</a></p>
+      <p class="modal-footer-text">No account needed. <a href="#hero" id="joinNowLink">Just browse.</a></p>
     </div>
   </div>
 
+  <!-- Navbar -->
   <header class="navbar" id="top">
-    <h1 class="logo">CineStream</h1>
-    <button class="sign-in-btn" id="openSignIn" type="button">Subscribe</button>
+    <div class="nav-brand">
+      <span class="nav-icon">🎬</span>
+      <span class="logo">StreamFlix</span>
+    </div>
+    <nav class="nav-links">
+      <a href="#trending">Trending</a>
+      <a href="#features">Features</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+    <button class="subscribe-btn" id="openSubscribe" type="button">Get Picks →</button>
   </header>
 
   <main id="mainContent">
+
+    <!-- Hero -->
     <section class="hero" id="hero">
+      <div class="hero-bg-grid" aria-hidden="true"></div>
       <div class="hero-content">
-        <span class="eyebrow">Movie discovery, simplified</span>
-        <h2>Unlimited movie inspiration, TV picks, and weekly updates</h2>
-        <p class="subtext">Discover trending titles, explore featured categories, and never run out of something great to watch.</p>
-        <p class="small-text">Stay updated with our newsletter for curated recommendations and platform highlights.</p>
+        <span class="eyebrow">🍿 Free movie discovery</span>
+        <h1>Find your next<br /><span class="gradient-text">favourite watch</span></h1>
+        <p class="subtext">StreamFlix curates trending films, hidden gems, and must-watch shows so you never stare at a blank screen again.</p>
         <form class="cta-form" id="ctaForm" novalidate>
           <label class="sr-only" for="ctaEmail">Email address</label>
-          <input type="email" id="ctaEmail" placeholder="Email address" autocomplete="email" />
-          <button type="submit">Subscribe now</button>
+          <input type="email" id="ctaEmail" placeholder="your@email.com" autocomplete="email" />
+          <button type="submit">Get Free Picks</button>
         </form>
         <p id="ctaMsg" class="cta-msg" aria-live="polite"></p>
+        <p class="cta-note">Free forever · No spam · Unsubscribe anytime</p>
+      </div>
+      <div class="hero-visual" aria-hidden="true">
+        <div class="floating-card card-1">🎭 Drama · 98% match</div>
+        <div class="floating-card card-2">🚀 Sci-Fi · Trending #1</div>
+        <div class="floating-card card-3">😂 Comedy · Staff pick</div>
+        <div class="hero-poster-grid">
+          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=300&q=80" alt="Movie poster 1" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=300&q=80" alt="Movie poster 2" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=300&q=80" alt="Movie poster 3" loading="lazy" />
+          <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=300&q=80" alt="Movie poster 4" loading="lazy" />
+        </div>
       </div>
     </section>
 
-    <section class="trending-section" aria-labelledby="trendingTitle">
-      <h2 class="trending-title" id="trendingTitle">Trending now</h2>
+    <!-- Stats -->
+    <section class="stats-bar">
+      <div class="stat"><strong>10K+</strong><span>Curated titles</span></div>
+      <div class="stat"><strong>50K+</strong><span>Happy readers</span></div>
+      <div class="stat"><strong>Weekly</strong><span>Fresh picks</span></div>
+      <div class="stat"><strong>Free</strong><span>Always</span></div>
+    </section>
+
+    <!-- Trending -->
+    <section class="trending-section" id="trending" aria-labelledby="trendingTitle">
+      <div class="section-header">
+        <h2 id="trendingTitle">🔥 Trending this week</h2>
+        <p>Handpicked by our community of film lovers</p>
+      </div>
       <div class="trending-row" id="trendingRow">
         <article class="trend-card">
-          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=400&q=80" alt="Poster art for Dark Horizon" loading="lazy" />
-          <div class="trend-rank">1</div>
-          <div class="trend-info"><span>Action · 2h 14m</span><p>Dark Horizon</p></div>
+          <img src="https://images.unsplash.com/photo-1536440136628-849c177e76a1?auto=format&fit=crop&w=400&q=80" alt="Dark Horizon movie poster" loading="lazy" />
+          <div class="trend-badge">🏆 #1</div>
+          <div class="trend-info">
+            <span class="trend-genre">Action · 2h 14m</span>
+            <p class="trend-title">Dark Horizon</p>
+            <div class="trend-rating">★★★★☆</div>
+          </div>
         </article>
         <article class="trend-card">
-          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=400&q=80" alt="Poster art for Echoes" loading="lazy" />
-          <div class="trend-rank">2</div>
-          <div class="trend-info"><span>Drama · 1h 58m</span><p>Echoes</p></div>
+          <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=400&q=80" alt="Echoes movie poster" loading="lazy" />
+          <div class="trend-badge">#2</div>
+          <div class="trend-info">
+            <span class="trend-genre">Drama · 1h 58m</span>
+            <p class="trend-title">Echoes</p>
+            <div class="trend-rating">★★★★★</div>
+          </div>
         </article>
         <article class="trend-card">
-          <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=400&q=80" alt="Poster art for The Last Signal" loading="lazy" />
-          <div class="trend-rank">3</div>
-          <div class="trend-info"><span>Thriller · 2h 02m</span><p>The Last Signal</p></div>
+          <img src="https://images.unsplash.com/photo-1542204165-65bf26472b9b?auto=format&fit=crop&w=400&q=80" alt="The Last Signal movie poster" loading="lazy" />
+          <div class="trend-badge">#3</div>
+          <div class="trend-info">
+            <span class="trend-genre">Thriller · 2h 02m</span>
+            <p class="trend-title">The Last Signal</p>
+            <div class="trend-rating">★★★★☆</div>
+          </div>
         </article>
         <article class="trend-card">
-          <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=400&q=80" alt="Poster art for Stellar" loading="lazy" />
-          <div class="trend-rank">4</div>
-          <div class="trend-info"><span>Sci-Fi · 2h 30m</span><p>Stellar</p></div>
+          <img src="https://images.unsplash.com/photo-1478720568477-152d9b164e26?auto=format&fit=crop&w=400&q=80" alt="Stellar movie poster" loading="lazy" />
+          <div class="trend-badge">#4</div>
+          <div class="trend-info">
+            <span class="trend-genre">Sci-Fi · 2h 30m</span>
+            <p class="trend-title">Stellar</p>
+            <div class="trend-rating">★★★★☆</div>
+          </div>
         </article>
         <article class="trend-card">
-          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=400&q=80" alt="Poster art for Summit" loading="lazy" />
-          <div class="trend-rank">5</div>
-          <div class="trend-info"><span>Adventure · 1h 45m</span><p>Summit</p></div>
+          <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?auto=format&fit=crop&w=400&q=80" alt="Summit movie poster" loading="lazy" />
+          <div class="trend-badge">#5</div>
+          <div class="trend-info">
+            <span class="trend-genre">Adventure · 1h 45m</span>
+            <p class="trend-title">Summit</p>
+            <div class="trend-rating">★★★☆☆</div>
+          </div>
         </article>
         <article class="trend-card">
-          <img src="https://images.unsplash.com/photo-1511300636408-a63a89df3482?auto=format&fit=crop&w=400&q=80" alt="Poster art for Midnight Blue" loading="lazy" />
-          <div class="trend-rank">6</div>
-          <div class="trend-info"><span>Romance · 1h 50m</span><p>Midnight Blue</p></div>
+          <img src="https://images.unsplash.com/photo-1511300636408-a63a89df3482?auto=format&fit=crop&w=400&q=80" alt="Midnight Blue movie poster" loading="lazy" />
+          <div class="trend-badge">#6</div>
+          <div class="trend-info">
+            <span class="trend-genre">Romance · 1h 50m</span>
+            <p class="trend-title">Midnight Blue</p>
+            <div class="trend-rating">★★★★☆</div>
+          </div>
         </article>
       </div>
     </section>
 
-    <section class="feature-section">
-      <div class="feature-text">
-        <h2>Enjoy on your TV</h2>
-        <p>Watch on Smart TVs, PlayStation, Xbox, Chromecast, Apple TV, Blu-ray players, and more from a clean multi-device experience.</p>
+    <!-- Features -->
+    <section class="features-grid" id="features">
+      <div class="section-header">
+        <h2>Why StreamFlix?</h2>
+        <p>We make finding great content effortless</p>
       </div>
-      <div class="feature-card">
-        <img src="https://images.unsplash.com/photo-1593784991095-a205069470b6?auto=format&fit=crop&w=900&q=80" alt="Streaming content on a large television screen" loading="lazy" />
-      </div>
-    </section>
-
-    <section class="feature-section reverse">
-      <div class="feature-text">
-        <h2>Download your shows to watch offline</h2>
-        <p>Save your favorites easily, build your personal watchlist, and keep great entertainment ready for travel or low-connectivity moments.</p>
-      </div>
-      <div class="feature-card">
-        <img src="https://images.unsplash.com/photo-1518932945647-7a1c969f8be2?auto=format&fit=crop&w=900&q=80" alt="Watching shows on a mobile device" loading="lazy" />
-      </div>
-    </section>
-
-    <section class="feature-section">
-      <div class="feature-text">
-        <h2>Create profiles for kids</h2>
-        <p>Give children a friendly space tailored to family viewing, with content highlights designed to feel simple, safe, and fun.</p>
-      </div>
-      <div class="feature-card">
-        <img src="https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=900&q=80" alt="Kid-friendly entertainment experience" loading="lazy" />
-      </div>
-    </section>
-
-    <section class="faq-section" aria-labelledby="faqTitle">
-      <h2 id="faqTitle">Frequently asked questions</h2>
-
-      <div class="faq-item">
-        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq1" id="faqBtn1">What is CineStream?</button>
-        <div class="faq-answer" id="faq1" role="region" aria-labelledby="faqBtn1" hidden>
-          <p>CineStream is a streaming discovery platform concept that highlights trending movies, TV shows, and curated recommendations in one place.</p>
+      <div class="features-cards">
+        <div class="feature-item">
+          <div class="feature-emoji">🎯</div>
+          <h3>Personalised picks</h3>
+          <p>Tell us your favourite genres and we'll surface titles matched to your taste every week.</p>
         </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq2" id="faqBtn2">How much does CineStream cost?</button>
-        <div class="faq-answer" id="faq2" role="region" aria-labelledby="faqBtn2" hidden>
-          <p>Browsing this landing page is free, and newsletter subscriptions are free for users who want weekly recommendations and updates.</p>
+        <div class="feature-item">
+          <div class="feature-emoji">📱</div>
+          <h3>Multi-device browsing</h3>
+          <p>Optimised for desktop, tablet, and mobile — discover great content anywhere, anytime.</p>
         </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq3" id="faqBtn3">Where can I browse?</button>
-        <div class="faq-answer" id="faq3" role="region" aria-labelledby="faqBtn3" hidden>
-          <p>You can browse from desktop, tablet, or mobile on any modern internet-connected device with a responsive viewing experience.</p>
+        <div class="feature-item">
+          <div class="feature-emoji">📬</div>
+          <h3>Weekly newsletter</h3>
+          <p>Every Friday, get a curated digest of the best new releases and underrated hidden gems.</p>
         </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq4" id="faqBtn4">How do I unsubscribe?</button>
-        <div class="faq-answer" id="faq4" role="region" aria-labelledby="faqBtn4" hidden>
-          <p>You can unsubscribe from newsletter updates using the link included in future emails, with no long-term commitment required.</p>
+        <div class="feature-item">
+          <div class="feature-emoji">🔍</div>
+          <h3>Deep discovery</h3>
+          <p>Go beyond the mainstream. We spotlight international films, indie darlings and cult classics.</p>
         </div>
-      </div>
-
-      <div class="faq-item">
-        <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq5" id="faqBtn5">Is this responsive?</button>
-        <div class="faq-answer" id="faq5" role="region" aria-labelledby="faqBtn5" hidden>
-          <p>Yes. The page uses mobile-friendly layouts, stacked sections, flexible forms, and horizontally scrollable trending cards for smaller screens.</p>
+        <div class="feature-item">
+          <div class="feature-emoji">⭐</div>
+          <h3>Community ratings</h3>
+          <p>Real ratings from real film lovers — not algorithm-inflated scores from bots.</p>
+        </div>
+        <div class="feature-item">
+          <div class="feature-emoji">🆓</div>
+          <h3>Always free</h3>
+          <p>No subscription fees, no hidden costs. StreamFlix is a passion project for film enthusiasts.</p>
         </div>
       </div>
     </section>
+
+    <!-- FAQ -->
+    <section class="faq-section" id="faq" aria-labelledby="faqTitle">
+      <div class="section-header">
+        <h2 id="faqTitle">Frequently asked questions</h2>
+        <p>Everything you need to know about StreamFlix</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq1" id="faqBtn1">What is StreamFlix?</button>
+          <div class="faq-answer" id="faq1" role="region" aria-labelledby="faqBtn1" hidden>
+            <p>StreamFlix is a free movie discovery platform and weekly newsletter. We help you find great films and shows to watch — we don't host or stream any content ourselves.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq2" id="faqBtn2">Is StreamFlix free?</button>
+          <div class="faq-answer" id="faq2" role="region" aria-labelledby="faqBtn2" hidden>
+            <p>Yes, completely free. We're a passion project run by film lovers. No subscription, no payment info required, ever.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq3" id="faqBtn3">How do I subscribe to the newsletter?</button>
+          <div class="faq-answer" id="faq3" role="region" aria-labelledby="faqBtn3" hidden>
+            <p>Just enter your email in the form above. You'll receive a welcome email, and then picks every Friday. No spam — we hate it as much as you do.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq4" id="faqBtn4">Can I unsubscribe?</button>
+          <div class="faq-answer" id="faq4" role="region" aria-labelledby="faqBtn4" hidden>
+            <p>Absolutely. Every email includes a one-click unsubscribe link. No questions asked.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false" aria-controls="faq5" id="faqBtn5">Does StreamFlix work on mobile?</button>
+          <div class="faq-answer" id="faq5" role="region" aria-labelledby="faqBtn5" hidden>
+            <p>Yes! The site is fully responsive — it works beautifully on phones, tablets, and desktops. Try it anywhere.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="cta-banner">
+      <h2>Ready to discover your next binge?</h2>
+      <p>Join 50,000+ film lovers getting weekly picks.</p>
+      <button class="subscribe-btn large" id="openSubscribeBanner" type="button">Subscribe Free →</button>
+    </section>
+
   </main>
 
   <footer class="footer">
-    <p>Questions? Call 1800-419-3789</p>
-    <div class="footer-links">
-      <a href="#">FAQ</a>
-      <a href="#">Help Centre</a>
-      <a href="#">Account</a>
-      <a href="#">Media Centre</a>
-      <a href="#">Investor Relations</a>
-      <a href="#">Jobs</a>
-      <a href="#">Ways to Watch</a>
-      <a href="#">Terms of Use</a>
-      <a href="#">Privacy</a>
-      <a href="#">Cookie Preferences</a>
-      <a href="#">Corporate Information</a>
-      <a href="#">Contact Us</a>
+    <div class="footer-brand">
+      <span class="footer-logo">🎬 StreamFlix</span>
+      <p>A movie discovery newsletter. Not affiliated with any streaming service.</p>
     </div>
-    <p class="footer-lang">CineStream Global</p>
+    <div class="footer-links">
+      <a href="#trending">Trending</a>
+      <a href="#features">Features</a>
+      <a href="#faq">FAQ</a>
+      <a href="#">Privacy</a>
+      <a href="#">Contact</a>
+    </div>
+    <p class="footer-copy">© 2025 StreamFlix · Built for film lovers · Frontend project</p>
   </footer>
 
   <script src="script.js"></script>
